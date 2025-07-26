@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ post.titulo }}{% endblock %}
+{% block content %}
+<h2>{{ post.titulo }}</h2>
+<p>{{ post.contenido }}</p>
+<p><strong>Categoría:</strong> {{ post.categoria }}</p>
+
+{% if post.imagen %}
+    <img src="{{ post.imagen.url }}" width="300">
+{% endif %}
+
+<hr>
+<h3>Comentarios:</h3>
+<ul>
+    {% for comentario in comentarios %}
+        <li><strong>{{ comentario.nombre_autor }}</strong>: {{ comentario.contenido }}</li>
+    {% empty %}
+        <li>No hay comentarios aún.</li>
+    {% endfor %}
+</ul>
+
+<h3>Agregar comentario</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Comentar</button>
+</form>
+{% endblock %}
