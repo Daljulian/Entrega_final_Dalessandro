@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block title %}{{ post.titulo }}{% endblock %}
+
 {% block content %}
 <h2>{{ post.titulo }}</h2>
 <p>{{ post.contenido }}</p>
@@ -7,6 +8,14 @@
 
 {% if post.imagen %}
     <img src="{{ post.imagen.url }}" width="300">
+{% endif %}
+
+<!-- Botones Editar/Eliminar solo para el autor del post -->
+{% if user == post.autor %}
+    <p>
+        <a href="{% url 'editar_post' post.pk %}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="{% url 'eliminar_post' post.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+    </p>
 {% endif %}
 
 <hr>

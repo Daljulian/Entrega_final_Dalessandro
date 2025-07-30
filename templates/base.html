@@ -9,7 +9,12 @@
     <header>
         <h1>Bienvenido a mi blog</h1>
         {% if user.is_authenticated %}
-            <p>Hola, {{ user.username }} | <a href="{% url 'logout' %}">Cerrar sesión</a></p>
+            <p>
+                Hola, {{ user.username }} |
+                <a href="{% url 'perfil_usuario' %}">Mi perfil</a> |
+                <a href="{% url 'editar_perfil' %}">Editar perfil</a> |
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            </p>
         {% else %}
             <p><a href="{% url 'login' %}">Iniciar sesión</a></p>
         {% endif %}

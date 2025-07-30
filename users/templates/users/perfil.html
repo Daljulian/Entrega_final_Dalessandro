@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Perfil de {{ request.user.username }}</h2>
+
+  {% if perfil.avatar %}
+    <img src="{{ perfil.avatar.url }}" alt="Avatar" width="120">
+  {% endif %}
+
+  <p><strong>Nombre de usuario:</strong> {{ request.user.username }}</p>
+  <p><strong>Email:</strong> {{ request.user.email }}</p>
+  <p><strong>Bio:</strong> {{ perfil.bio }}</p>
+  <p><strong>Sitio web:</strong> <a href="{{ perfil.sitio_web }}">{{ perfil.sitio_web }}</a></p>
+{% endblock %}
