@@ -8,6 +8,7 @@
 <body>
     <h1><a href="{% url 'index' %}">Blog</a></h1>
    <nav>
+    
 {% if user.is_authenticated %}
     <p>Hola, {{ user.username }}</p>
     <ul>
@@ -26,10 +27,7 @@
     <a href="{% url 'login' %}">Iniciar sesión</a> |
     <a href="{% url 'register' %}">Registrarse</a>
 {% endif %}
- <!-- Formulario de búsqueda -->
-    <form method="get" action="{% url 'buscar_post' %}" style="display:inline; margin-left: 20px;">
-        <input type="text" name="q" placeholder="Buscar posts...">
-        <button type="submit">Buscar</button>
+
     <!-- Formulario de búsqueda con feedback visual -->
 <form method="get" action="{% url 'buscar_post' %}" style="display:inline; margin-left: 20px;">
     <input type="text" name="q" placeholder="Buscar posts..." value="{{ request.GET.q|default_if_none:'' }}" style="padding:5px; border-radius:5px; border:1px solid #ccc;">

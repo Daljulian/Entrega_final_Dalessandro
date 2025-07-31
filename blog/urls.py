@@ -10,4 +10,7 @@ urlpatterns = [
     path('crear_categoria/', views.crear_categoria, name='crear_categoria'),
     path('post/<int:post_id>/', views.detalle_post, name='detalle_post'),
     path('buscar/', views.buscar_post, name='buscar_post'),
+    path('sobre-mi/', views.sobre_mi, name='sobre_mi'),
+    path('contacto/', views.contacto, name='contacto'),
+    
 ]

@@ -104,3 +104,13 @@ def eliminar_post(request, pk):
         post.delete()
         return redirect('lista_posts')  # O la vista principal
     return render(request, 'blog/confirmar_eliminacion.html', {'post': post})
+
+def sobre_mi(request):
+    return render(request, 'sobre_mi.html')
+
+def contacto(request):
+    return render(request, 'contacto.html')
+
+
+def error_404(request, exception):
+    return render(request, '404.html', status=404)
