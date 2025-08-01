@@ -106,10 +106,10 @@ def eliminar_post(request, pk):
     return render(request, 'blog/confirmar_eliminacion.html', {'post': post})
 
 def sobre_mi(request):
-    return render(request, 'sobre_mi.html')
+    return render(request, 'blog/registration/sobre_mi.html')
 
 def contacto(request):
-    return render(request, 'contacto.html')
+    return render(request, 'blog/registration/contacto.html')
 
 
 def error_404(request, exception):

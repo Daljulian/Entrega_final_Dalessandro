@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
+    {% load static %}
     <meta charset="UTF-8">
     <title>{% block title %}Mi Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 </head>
 <body>
     <h1><a href="{% url 'index' %}">Blog</a></h1>
-   <nav>
-    
-{% if user.is_authenticated %}
-    <p>Hola, {{ user.username }}</p>
-    <ul>
-        <li><a href="{% url 'crear_post' %}">Nuevo post</a></li>
-        <li><a href="{% url 'crear_categoria' %}">Nueva categoría</a></li>
-        <li><a href="{% url 'perfil_usuario' %}">Mi perfil</a></li>
-        <li><a href="{% url 'editar_perfil' %}">Editar perfil</a></li>
-        <li>
-            <form action="{% url 'logout' %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit">Cerrar sesión</button>
-            </form>
-        </li>
-    </ul>
-{% else %}
-    <a href="{% url 'login' %}">Iniciar sesión</a> |
-    <a href="{% url 'register' %}">Registrarse</a>
-{% endif %}
 
-    <!-- Formulario de búsqueda con feedback visual -->
-<form method="get" action="{% url 'buscar_post' %}" style="display:inline; margin-left: 20px;">
-    <input type="text" name="q" placeholder="Buscar posts..." value="{{ request.GET.q|default_if_none:'' }}" style="padding:5px; border-radius:5px; border:1px solid #ccc;">
-    <button type="submit" style="padding:5px 10px; border:none; background-color:#4285f4; color:white; border-radius:5px;">Buscar</button>
-</form>
+    <nav>
+    {% if user.is_authenticated %}
+        <p>Hola, {{ user.username }}</p>
+        <ul>
+            <li><a href="{% url 'crear_post' %}">Nuevo post</a></li>
+            <li><a href="{% url 'crear_categoria' %}">Nueva categoría</a></li>
+            <li><a href="{% url 'perfil_usuario' %}">Mi perfil</a></li>
+            <li><a href="{% url 'editar_perfil' %}">Editar perfil</a></li>
+            <li>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Cerrar sesión</button>
+                </form>
+            </li>
+        </ul>
+    {% else %}
+        <ul>
+            <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+            <li><a href="{% url 'register' %}">Registrarse</a></li>
+        </ul>
+    {% endif %}
+
+    <ul>
+        <li><a href="{% url 'sobre_mi' %}">Sobre mí</a></li>
+        <li><a href="{% url 'contacto' %}">Contacto</a></li>
+    </ul>
+
+    <!-- Formulario de búsqueda con estilo -->
+    <form method="get" action="{% url 'buscar_post' %}" style="display:inline; margin-left: 20px;">
+        <input type="text" name="q" placeholder="Buscar posts..." value="{{ request.GET.q|default_if_none:'' }}" style="padding:5px; border-radius:5px; border:1px solid #ccc;">
+        <button type="submit" style="padding:5px 10px; border:none; background-color:#4285f4; color:white; border-radius:5px;">Buscar</button>
     </form>
 </nav>
+
     <hr>
-    
+
     {% block content %}{% endblock %}
 </body>
 </html>

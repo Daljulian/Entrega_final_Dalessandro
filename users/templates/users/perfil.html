@@ -11,4 +11,8 @@
   <p><strong>Email:</strong> {{ request.user.email }}</p>
   <p><strong>Bio:</strong> {{ perfil.bio }}</p>
   <p><strong>Sitio web:</strong> <a href="{{ perfil.sitio_web }}">{{ perfil.sitio_web }}</a></p>
+   <!-- Botón para volver al inicio -->
+  <p style="margin-top: 20px;">
+      <a href="{% url 'index' %}" style="text-decoration: none; color: white; background-color: #4285f4; padding: 10px 15px; border-radius: 5px;">Volver al inicio</a>
+  </p>
 {% endblock %}
