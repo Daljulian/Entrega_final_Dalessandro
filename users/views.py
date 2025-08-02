@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import PerfilUsuario
-from .forms import PerfilUsuarioForm
+from .forms import PerfilUsuarioForm, UserUpdateForm
+from django.contrib.auth.models import User
 
 def register(request):
     if request.method == 'POST':
@@ -28,12 +29,18 @@ def editar_perfil(request):
     perfil, created = PerfilUsuario.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
-        form = PerfilUsuarioForm(request.POST, request.FILES, instance=perfil)
-        if form.is_valid():
-            form.save()
-            return redirect('perfil_usuario')  # Nombre del path de la vista de perfil
+        form_usuario = UserUpdateForm(request.POST, instance=request.user)
+        form_perfil = PerfilUsuarioForm(request.POST, request.FILES, instance=perfil)
+
+        if form_usuario.is_valid() and form_perfil.is_valid():
+            form_usuario.save()
+            form_perfil.save()
+            return redirect('perfil_usuario')
     else:
-        form = PerfilUsuarioForm(instance=perfil)
+        form_usuario = UserUpdateForm(instance=request.user)
+        form_perfil = PerfilUsuarioForm(instance=perfil)
 
-    return render(request, 'users/editar_perfil.html', {'form': form})
-
+    return render(request, 'users/editar_perfil.html', {
+        'form_usuario': form_usuario,
+        'form_perfil': form_perfil
+})
