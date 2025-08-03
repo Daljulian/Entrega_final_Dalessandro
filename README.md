@@ -1,38 +1,38 @@
 # Proyecto Blog en Django
 
-Este proyecto es un blog desarrollado utilizando **Django** en Visual Studio Code, aplicando el patrón arquitectónico **MVT** (Modelo - Vista - Template). El objetivo principal fue incorporar funcionalidades básicas y avanzadas para construir una aplicación web robusta, moderna y personalizable.
+Este proyecto es un blog desarrollado utilizando Django en Visual Studio Code, aplicando  MVT (Modelo - Vista - Template). El objetivo principal fue incorporar funcionalidades básicas y avanzadas para construir una aplicación web robusta, moderna y personalizable.
 
 ---
 
-## ✅ Funcionalidades implementadas
+## Funcionalidades implementadas
 
-1. **Herencia de HTML**  
+1. Herencia de HTML 
    Todos los templates comparten una base (`base.html`) que incluye la estructura común del sitio: header, footer, navegación y uso de bloques `{% block %}` para contenido dinámico.
 
-2. **Modelos con al menos 3 clases**  
+2. Modelos   
    En la app `blog`, se definieron los siguientes modelos:
    - `Post`: título, contenido, autor, fecha.
    - `Categoria`: nombre, descripción.
    - `Comentario`: post relacionado, autor, contenido, fecha.
 
-3. **Formularios para insertar datos**  
+3. Formularios para insertar datos  
    Se crearon formularios (`forms.py`) para insertar:
    - Nuevos posts.
    - Categorías.
    - Comentarios.
 
-4. **Formulario de búsqueda**  
+4. Formulario de búsqueda  
    Se implementó un formulario de búsqueda por título dentro del blog. La vista filtra y devuelve resultados relacionados con el término ingresado.
 
-5. **Manejo de errores - Página 404**  
+5. Manejo de errores - Página 404  
    Se añadió una vista personalizada para mostrar un template amigable cuando una página no es encontrada.
 
-6. **Sistema de usuarios completo**
+6. Sistema de usuarios completo
    - Registro de nuevos usuarios.
    - Ingreso (login) y cierre de sesión (logout).
    - Edición del perfil de usuario.
 
-7. **Restricción de contenido por sesión**  
+7. Restricción de contenido por sesión
    Se restringió el acceso a ciertas vistas del blog a usuarios registrados (por ejemplo, agregar posts, comentarios o editar).
 
 ---
@@ -45,7 +45,7 @@ Este proyecto es un blog desarrollado utilizando **Django** en Visual Studio Cod
 - Bootstrap (opcional)
 - SQLite (base de datos por defecto)
 
-## 🛠 Tecnologías y librerías a incorporar (en próxima etapa)
+## Tecnologías y librerías a incorporar (en próxima etapa)
 
 Se planificó modernizar la interfaz y extender las funcionalidades:
 - **Tailwind CSS** y **Astro** para diseño moderno y responsivo.
@@ -56,9 +56,9 @@ Se planificó modernizar la interfaz y extender las funcionalidades:
 
 ---
 
-## 🚀 ¿Cómo probar el proyecto?
+## ¿Cómo probar el proyecto?
 
-> Asegúrate de tener Python y Django instalados previamente.  
+- Asegúrate de tener Python y Django instalados previamente.  
 
 1. Cloná el repositorio:
    ```bash
@@ -113,8 +113,7 @@ Entrar en el navegador a: http://127.0.0.1:8000/
    - Cerrar sesión y probar acceder a `/blog/nuevo/` para comprobar que está restringido.
 
 
-
-   ## Autor
+## Autor
 
 Julián D'Alessandro Magrini  
-Proyecto académico - Curso Django 2025
+Proyecto académico - Curso Python 2025
