@@ -62,8 +62,8 @@ Se planificó modernizar la interfaz y extender las funcionalidades:
 
 1. Cloná el repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
-   cd tu_repositorio
+   git clone https://github.com/Daljulian/Entrega_final_Dalessandro.git
+   cd Entrega_final_Dalessandro
 2. Crear un entorno virtual
     ```bash
 python -m venv env
